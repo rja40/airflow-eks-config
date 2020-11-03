@@ -29,8 +29,10 @@ spec:
     executor: "KubernetesExecutor"
     dags:
       persistence: 
-      
-        enabled: false
+        enabled: true
+        size: 512Mi
+        storageClassName: aws-efs
+        existingClaim: efs-storage-claim
       gitSync:
         enabled: true
         repo: https://github.com/rja40/airflow-dags.git
